@@ -33,5 +33,6 @@ while true; do
    echo "Setting Light to $led_light ..."
    echo "$led_light" > "$led_path"
 
-   inotifywait "$light_path"
+   #inotifywait "$light_path"
+   sleep 1
 done
