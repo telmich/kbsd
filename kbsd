@@ -33,12 +33,28 @@ if [ $# -eq 1 ]; then
    exit 0
 fi
 
+__backlightvalue()
+{
+   lv=$1;shift
+
+   if [ "$lv" -lt 20 ]; then
+      echo 255
+   elif [ "$lv" -lt 40 ]; then
+      echo 240
+   else
+      echo 0
+   fi
+}
+
 while true; do
    light=$(sed 's/^(\(.*\),.*)/\1/' "$light_path")
-   led_light=$((255-$light))
-   echo "Setting Light to $led_light ..."
-   echo "$led_light" > "$led_path"
+   backlight="$(__backlightvalue "$light")"
+   printf "Measured %s light value, setting backlight to %s ...\\n" $light $backlight
+   echo "$backlight" > "$led_path"
 
    #inotifywait "$light_path"
    sleep 1
 done
+
+# Brightness control is non-linear (square).
+
