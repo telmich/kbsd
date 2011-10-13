@@ -1,0 +1,5 @@
+# Generated packages
+kbsd-*tar*
+pkg/
+src/
+
