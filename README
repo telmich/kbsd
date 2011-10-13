@@ -7,7 +7,11 @@ Works for MacBook Air (4,2) on Linux 3.1.0-rc9-00064-g65112dc.
 
 Usage:
 
-   ./kbsd
+   # Run and adjust backlight depending on light sensor data
+   ./kbsd 
+
+   # Setup backlight value indepently (0-255)
+   ./kbsd 128
 
 Requirements:
    You need to have read access to the light sensor and write
