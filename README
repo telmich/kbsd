@@ -12,3 +12,5 @@ Usage:
 Requirements:
    You need to have read access to the light sensor and write
    access to the led brightness file. See kbsd for details.
+
+   inotify-tools - to watch changes on the light sensor
