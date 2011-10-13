@@ -28,13 +28,21 @@ BASE="/sys/bus/platform/drivers/applesmc/applesmc.768"
 LIGHT_SENSOR="light"
 LED="smc::kbd_backlight/brightness"
 
+BRIGHT_MAX = 255
+
 light_path = os.path.join(BASE, LIGHT_SENSOR)
 led_path = os.path.join(BASE, LED)
+
+light_match = r'^\(\\\(.*\\\),'
+light_replace = r'\1'
 
 while True:
     light_fd = open(light_path, "r")
     light_raw = open(light_path, "r").readlines()
     light = light_raw[0].rstrip('\n')
+    light = light.strip('(')
+
+    #light_value = re.sub(light_match, light_replace, light)
 
     print(light)
 
