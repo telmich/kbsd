@@ -1,4 +1,24 @@
 #!/bin/sh
+#
+# 2011 Nico Schottelius (nico-kbsd at schottelius.org)
+#
+# This file is part of kbsd.
+#
+# kbsd is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# kbsd is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with kbsd. If not, see <http://www.gnu.org/licenses/>.
+#
+#
+
 
 BASE="/sys/bus/platform/drivers/applesmc/applesmc.768"
 LIGHT_SENSOR="light"
@@ -8,7 +28,6 @@ light_path="$BASE/$LIGHT_SENSOR"
 led_path="$BASE/$LED"
 
 light=$(sed 's/^(\(.*\),.*)/\1/' "$light_path")
-
 led_light=$((255-$light))
 
 echo "$led_light" > "$led_path"
