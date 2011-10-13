@@ -1,3 +1,6 @@
 Keyboard Backlight - Sensored Dimming (kbsd)
+Nico Schottelius, 2011-10-13
 
 Dimms the keyboard backlight depending on the surrounding light.
+
+Works for MacBook Air (4,2) on Linux 3.1.0-rc9-00064-g65112dc.
