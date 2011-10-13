@@ -27,7 +27,11 @@ LED="leds/smc::kbd_backlight/brightness"
 light_path="$BASE/$LIGHT_SENSOR"
 led_path="$BASE/$LED"
 
-light=$(sed 's/^(\(.*\),.*)/\1/' "$light_path")
-led_light=$((255-$light))
+while true; do
+   light=$(sed 's/^(\(.*\),.*)/\1/' "$light_path")
+   led_light=$((255-$light))
+   echo "Setting Light to $led_light ..."
+   echo "$led_light" > "$led_path"
 
-echo "$led_light" > "$led_path"
+   inotifywait "$light_path"
+done
