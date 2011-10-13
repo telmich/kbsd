@@ -20,3 +20,24 @@
 #
 #
 
+import os
+import re
+import time
+
+BASE="/sys/bus/platform/drivers/applesmc/applesmc.768"
+LIGHT_SENSOR="light"
+LED="smc::kbd_backlight/brightness"
+
+light_path = os.path.join(BASE, LIGHT_SENSOR)
+led_path = os.path.join(BASE, LED)
+
+while True:
+    light_fd = open(light_path, "r")
+    light_raw = open(light_path, "r").readlines()
+    light = light_raw[0].rstrip('\n')
+
+    print(light)
+
+    time.sleep(1)
+
+    
