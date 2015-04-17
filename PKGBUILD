@@ -2,16 +2,16 @@
 
 pkgname=kbsd
 pkgver=0.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Setup Keyboard Backlight using the light sensor on MacBooks"
-url="http://git.schottelius.org/?p=kbsd;a=summary"
+url="https://github.com/telmich/kbsd"
 license=("GPL")
 arch=("i686" "x86_64")
 depends=("inotify-tools")
 source=()
 md5sums=()
 
-gitroot="git://git.schottelius.org/${pkgname}"
+gitroot="https://github.com/telmich/${pkgname}"
 
 build() {
    cd "${srcdir}"
